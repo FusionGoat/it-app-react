@@ -1,63 +1,92 @@
-import React, { Component } from "react";
-import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
-import "./Login.css";
- {
-}
-export default class Login extends Component {
-    constructor(props) {
-      super(props);
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import AppBar from 'material-ui/AppBar';
+import RaisedButton from 'material-ui/RaisedButton';
+import TextField from 'material-ui/TextField';
+import React, { Component } from 'react';
+import './Login.css'
 
-      this.state = {
-        login: "",
-        password: ""
-      };
-    }
 
-    validateForm() {
-      return this.state.login.length > 0 && this.state.password.length > 0;
-    }
+const url = 'https://bms.it-tv.org/stat/api.php'
+class Login extends Component {
+constructor(props){
+  super(props);
+  this.state={
+  username:'',
+  password:'',
 
-    handleChange = event => {
-      this.setState({
-        [event.target.id]: event.target.value
-      });
-    }
-
-    handleSubmit = event => {
-      event.preventDefault();
-    }
-
-    render() {
-      return (
-        <div className="Login">
-          <form onSubmit={this.handleSubmit}>
-            <FormGroup controlId="login" bsSize="large">
-              <ControlLabel>Login</ControlLabel>
-              <FormControl
-                autoFocus
-
-                value={this.state.login}
-                onChange={this.handleChange}
-              />
-            </FormGroup>
-            <FormGroup controlId="password" bsSize="large">
-              <ControlLabel>Password</ControlLabel>
-              <FormControl
-                value={this.state.password}
-                onChange={this.handleChange}
-                type="password"
-              />
-            </FormGroup>
-            <Button
-              block
-              bsSize="large"
-              disabled={!this.validateForm()}
-              type="submit"
-            >
-              Login
-            </Button>
-          </form>
-        </div>
-      );
-    }
   }
+ }
+
+  handleClick(event,result){
+   let action = "auth";
+   let login = this.state.username;
+   let password = this.state.password;
+   
+   fetch(url, {
+
+        method: 'POST',
+        headers: {
+          "Content-type": "application/x-www-form-urlencoded"
+        },
+        body: "action="+action+"&login="+login+"&password="+password
+      });
+}
+
+  handleClick2(event) {
+       let action = "get_accounts";
+       fetch(url, {
+
+           method: 'POST',
+           headers: {
+             "Content-type": "application/x-www-form-urlencoded"
+           },
+
+           body: "action="+action
+         })
+         .catch( alert );
+        }
+
+
+render() {
+    return (
+      <div>
+        <MuiThemeProvider>
+          <div>
+          <AppBar
+             title="Авторизация"
+           />
+           <TextField style={style}
+             hintText="Введите ваш логин"
+             floatingLabelText="Логин"
+
+             onChange = {(event,newValue) => this.setState({username:newValue})}
+             />
+           <br/>
+             <TextField style={style}
+               type="password"
+
+               hintText="Введите ваш пароль"
+               floatingLabelText="Пароль"
+               onChange = {(event,newValue) => this.setState({password:newValue})}
+               />
+             <br/>
+             <RaisedButton
+               label="Войти"
+               primary={true}
+               style={style}
+               onClick={(event) => this.handleClick(event)}/>
+             <RaisedButton
+               label="Получить данные"
+               primary={true}
+               style={style}
+               onClick={(event) => this.handleClick2(event)}/>
+         </div>
+         </MuiThemeProvider>
+      </div>
+    );
+  }
+}
+const style = {
+ margin: 5
+};
+export default Login;
