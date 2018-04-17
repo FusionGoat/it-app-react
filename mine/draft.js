@@ -151,3 +151,66 @@ export default class Login extends Component {
                       secondParam: 'yourOtherValue',
                     })
                   })
+
+
+
+
+
+                    handleClick2(event) {
+                      let action = "get_accounts";
+                      let xhr = new XMLHttpRequest();
+                       xhr.open('POST', url, true);
+                       xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+                       xhr.send("action="+action+"&session="+sessionStorage.getItem('sessionNumber'));
+                       xhr.onreadystatechange = processRequest;
+                       function processRequest(e) {
+                            if (xhr.readyState === 4 && xhr.status === 200) {
+                             let response1 = JSON.parse(xhr.responseText);
+                             alert("У вас на счету " + response1.data[0].NowSum)
+                              }}
+                      }
+
+                      handleClick3(event) {
+                        let action = "get_abonent";
+                        let xhr = new XMLHttpRequest();
+                         xhr.open('POST', url, true);
+                         xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+                         xhr.send("action="+action+"&session="+sessionStorage.getItem('sessionNumber'));
+                         xhr.onreadystatechange = processRequest;
+                         function processRequest(e) {
+                              if (xhr.readyState === 4 && xhr.status === 200) {
+                               let response1 = JSON.parse(xhr.responseText);
+                               alert("Вас зовут " + response1.data.Name )
+                                }}
+                        }
+                        handleClick4(event) {
+                          let action = "get_messages";
+                          let xhr = new XMLHttpRequest();
+                           xhr.open('POST', url, true);
+                           xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+                           xhr.send("action="+action+"&session="+sessionStorage.getItem('sessionNumber'));
+                           xhr.onreadystatechange = processRequest;
+                           function processRequest(e) {
+                                if (xhr.readyState === 4 && xhr.status === 200) {
+                                 let response1 = JSON.parse(xhr.responseText);
+                                 alert( response1.data[0].Text + "\n Дата: " +response1.data[0].Time )
+                                  }}
+                          }
+
+                          /*   fetch(url, {
+                                  method: 'POST',
+                                  headers: {
+                                    "Content-type": "application/x-www-form-urlencoded"
+                                  },
+                                  body: "action="+action+"&login="+login+"&password="+password+"&session="
+                                })
+                                .then(response => response.json())
+                                .then(parsedJSON => {
+                                  this.setState({
+                                    data:parsedJSON
+
+                                  });
+
+                                })
+
+                                .catch(error => console.log('parsing failed', error))*/
