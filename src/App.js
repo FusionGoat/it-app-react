@@ -11,13 +11,13 @@ import {
   Redirect,
   withRouter
 } from 'react-router-dom'
-
+import Login from './Login';
+import Accounts from './Accounts';
 
 class App extends Component {
-  
-  render(){
-    return <Redirect push to="/Login" />;
-}
 
-}
+  render(){
+     return <Redirect push to="/Accounts" />;
+
+}}
 export default App;

@@ -5,14 +5,20 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import {BrowserRouter, Route, Router} from 'react-router-dom';
 import {browserHistory} from 'react-router';
-import Stat from './Stat'
+import Abonent from './Abonent'
 import Login from './Login';
+
+import Messages from './Messages'
+import Accounts from './Accounts';
 ReactDOM.render(
   <BrowserRouter>
     <div>
         <Route path="/" component={App} />
-        <Route path="/Stat" component={Stat} />
+        <Route path="/Abonent" component={Abonent} />
         <Route path="/Login" component={Login} />
+        <Route path="/Messages" component={Messages} />
+        <Route path="/Accounts" component={Accounts} />
+
     </div>
   </BrowserRouter>,
   document.getElementById('root'));

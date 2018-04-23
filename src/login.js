@@ -20,7 +20,7 @@ constructor(props){
   this.state={
   username:'',
   password:'',
-  redirect: false
+  loggedIn: false
   }
  this.handleClick = this.handleClick.bind(this);
  }
@@ -40,7 +40,7 @@ handleClick(event){
       .then(response => response.json())
       .then(parsedJSON => { localStorage.setItem('sessionNumber',parsedJSON.session);
       if(parsedJSON.result === 1){
-        this.setState({redirect: true})
+        this.setState({loggedIn: true})
       }else{
         alert("try again")
        }
@@ -50,8 +50,8 @@ handleClick(event){
 
 render() {
 
-  if (this.state.redirect) {
-     return <Redirect push to="/Stat" />;
+  if (this.state.loggedIn) {
+     return <Redirect  to="/Messages" />;
    }else{
 
     return (
