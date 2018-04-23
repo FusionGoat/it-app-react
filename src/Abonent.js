@@ -77,8 +77,12 @@ const { error, isLoaded, data } = this.state;
             <li><Link to='/Messages'>Сообщения</Link></li>
           </ul>
 
-          <p>
-              {data.Name}
+          <p>              <Paper style={style} key={data.Id}>
+                          <h2>{data.Name}</h2>
+
+                          <p>Телефоны: {data.Phones}</p>
+                        </Paper>
+
               {/* {data(item => (
                 <Paper style={style} zDepth={3}  rounded= {true} key={item.Id}>
                   <strong>{item.Name}</strong>
@@ -86,7 +90,7 @@ const { error, isLoaded, data } = this.state;
                 </Paper>
               ))} */}
           </p>
-            {data.Phones}
+
          </div>
          </MuiThemeProvider>
       </div>

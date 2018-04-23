@@ -25,6 +25,28 @@ constructor(props){
  this.handleClick = this.handleClick.bind(this);
  }
 
+handleKeyPress(event){
+    let action = "auth";
+    let login = this.state.username;
+    let password = this.state.password;
+    if(event.key == 'Enter'){
+      fetch(url, {
+         method: 'POST',
+         headers: {
+           "Content-type": "application/x-www-form-urlencoded"
+         },
+         body: "action="+action+"&login="+login+"&password="+password
+       })
+       .then(response => response.json())
+       .then(parsedJSON => { localStorage.setItem('sessionNumber',parsedJSON.session);
+       if(parsedJSON.result === 1){
+         this.setState({loggedIn: true})
+       }else{
+         alert("try again")
+        }
+         })
+       .catch(error => console.log('parsing failed', error))
+ }}
 handleClick(event){
    let action = "auth";
    let login = this.state.username;
@@ -83,7 +105,7 @@ render() {
                primary={true}
                style={style}
                onClick={(event) => this.handleClick(event)}
-
+               onKeyPress={(event) => this.handleKeyPress(event)}
              />
 
          </div>

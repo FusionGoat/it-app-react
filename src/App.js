@@ -17,7 +17,7 @@ import Accounts from './Accounts';
 class App extends Component {
 
   render(){
-     return <Redirect push to="/Accounts" />;
+     return <Redirect push to="/Login" />;
 
 }}
 export default App;
