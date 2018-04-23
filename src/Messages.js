@@ -1,15 +1,7 @@
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
 import React, { Component } from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  Redirect,
-  withRouter
-} from 'react-router-dom'
 import Paper from 'material-ui/Paper';
-import RefreshIndicator from 'material-ui/RefreshIndicator';
 import Nav from './Navigation';
 import ExitBtn from './ExitBtn';
 
@@ -74,7 +66,7 @@ const { error, isLoaded, data } = this.state;
     return <div>Loading...</div>;
   } else {
    return (
-      <div>
+
         <MuiThemeProvider>
           <div>
           <AppBar title="Сообщения"/>
@@ -85,10 +77,11 @@ const { error, isLoaded, data } = this.state;
                   <p>{item.Text}</p>
                 </Paper>
               ))}
-         </div>
+
          <ExitBtn/>
+         </div>
          </MuiThemeProvider>
-      </div>
+      
     );
   }
 }}

@@ -3,15 +3,7 @@ import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import React, { Component } from 'react';
-
-
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  Redirect,
-  withRouter
-} from 'react-router-dom'
+import {  Redirect} from 'react-router-dom'
 
 const url = 'https://bms.it-tv.org/stat/api.php'
 class Login extends Component {
@@ -24,12 +16,16 @@ constructor(props){
   }
  this.handleClick = this.handleClick.bind(this);
  }
+componentDidMount() {
+console.log(this.state.loggedIn)
 
+
+};
 handleKeyPress(event){
     let action = "auth";
     let login = this.state.username;
     let password = this.state.password;
-    if(event.key == 'Enter'){
+    if(event.key === 'Enter'){
       fetch(url, {
          method: 'POST',
          headers: {
@@ -73,12 +69,12 @@ handleClick(event){
 render() {
 
   if (this.state.loggedIn) {
-     return <Redirect  to="/Messages" />;
+     return <Redirect push to="/Messages" />;
    }else{
 
     return (
 
-      <div>
+    
         <MuiThemeProvider>
           <div>
           <AppBar
@@ -110,7 +106,7 @@ render() {
 
          </div>
          </MuiThemeProvider>
-      </div>
+
     );}
   }
   }

@@ -1,12 +1,4 @@
 import React, {Component} from 'react';
-import Paper from 'material-ui/Paper';
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  Redirect,
-  withRouter
-} from 'react-router-dom'
 import RaisedButton from 'material-ui/RaisedButton';
 
 const style = {
