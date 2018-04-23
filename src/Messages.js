@@ -10,6 +10,9 @@ import {
 } from 'react-router-dom'
 import Paper from 'material-ui/Paper';
 import RefreshIndicator from 'material-ui/RefreshIndicator';
+import BottomNav from './Navigation';
+
+
 
 class Messages extends Component {
   constructor(){
@@ -74,11 +77,6 @@ const { error, isLoaded, data } = this.state;
         <MuiThemeProvider>
           <div>
           <AppBar title="Сообщения"/>
-          <ul>
-            <li><Link to='/Abonent'>Инфа о юзере</Link></li>
-            <li><Link to='/Accounts'>Счета</Link></li>
-            <li><Link to='/Messages'>Сообщения</Link></li>
-          </ul>
 
           <p>
 
@@ -94,6 +92,7 @@ const { error, isLoaded, data } = this.state;
           </p>
 
          </div>
+         <BottomNav/>
          </MuiThemeProvider>
       </div>
     );
