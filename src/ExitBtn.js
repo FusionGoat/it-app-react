@@ -22,7 +22,7 @@ class ExitBtn extends Component {
 
   render() {
     return (
-       <RaisedButton label="Выход" primary={true} style={style} onClick={(event) => this.LogOutClick(event)}/>
+       <RaisedButton label="Выход" primary={true} style={style} fullWidth={true} onClick={(event) => this.LogOutClick(event)}/>
     );
   }
 }

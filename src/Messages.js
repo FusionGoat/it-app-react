@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import Paper from 'material-ui/Paper';
 import Nav from './Navigation';
 import ExitBtn from './ExitBtn';
-
+import Loader from './Loader';
 
 
 class Messages extends Component {
@@ -18,7 +18,7 @@ class Messages extends Component {
 
   }
   componentDidMount() {
-    const url = 'https://bms.it-tv.org/stat/api.php'
+    let url = 'https://bms.it-tv.org/stat/api.php'
     let action = "get_messages";
     fetch(url, {
          method: 'POST',
@@ -63,7 +63,11 @@ const { error, isLoaded, data } = this.state;
   if (error) {
     return <div>Error: {error.message}</div>;
   } else if (!isLoaded) {
-    return <div>Loading...</div>;
+    return <div>
+      <MuiThemeProvider>
+      <Loader/>
+      </MuiThemeProvider>
+    </div>;
   } else {
    return (
 
@@ -78,10 +82,10 @@ const { error, isLoaded, data } = this.state;
                 </Paper>
               ))}
 
-         <ExitBtn/>
+              <ExitBtn/>
          </div>
          </MuiThemeProvider>
-      
+
     );
   }
 }}

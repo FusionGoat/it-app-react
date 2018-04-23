@@ -74,7 +74,7 @@ render() {
 
     return (
 
-    
+
         <MuiThemeProvider>
           <div>
           <AppBar
@@ -94,6 +94,7 @@ render() {
                hintText="Введите ваш пароль"
                floatingLabelText="Пароль"
                onChange = {(event,newValue) => this.setState({password:newValue})}
+               onKeyPress={(event) => this.handleKeyPress(event)}
                />
              <br/>
              <RaisedButton
