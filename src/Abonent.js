@@ -5,6 +5,7 @@ import Paper from 'material-ui/Paper';
 import Nav from './Navigation';
 import ExitBtn from './ExitBtn';
 import Loader from './Loader';
+import {  Redirect} from 'react-router-dom'
 
 const url = 'https://bms.it-tv.org/stat/api.php'
 class Abonent extends Component {
@@ -61,6 +62,10 @@ render() {
 const { error, isLoaded, data } = this.state;
   if (error) {
     return <div>Error: {error.message}</div>;
+  }else if (data === undefined) {
+    return <div>
+        <Redirect push to="/Login" />;
+    </div>;
   } else if (!isLoaded) {
     return <div>
       <MuiThemeProvider>

@@ -13,7 +13,7 @@ import Accounts from './Accounts';
 ReactDOM.render(
   <BrowserRouter>
     <div>
-        <Route path="/" component={App} />
+        <Route exact path="/" component={App} />
         <Route path="/Abonent" component={Abonent} />
         <Route path="/Login" component={Login} />
         <Route path="/Messages" component={Messages} />
