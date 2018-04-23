@@ -10,7 +10,8 @@ import {
 } from 'react-router-dom'
 import Paper from 'material-ui/Paper';
 import RefreshIndicator from 'material-ui/RefreshIndicator';
-import BottomNav from './Navigation';
+import Nav from './Navigation';
+import ExitBtn from './ExitBtn';
 
 
 
@@ -77,22 +78,15 @@ const { error, isLoaded, data } = this.state;
         <MuiThemeProvider>
           <div>
           <AppBar title="Сообщения"/>
-
-          <p>
-
+            <Nav/>
               {data.map(item => (
                 <Paper style={style} zDepth={3}  rounded= {true} key={item.Id}>
                   <strong>{item.Time}</strong>
                   <p>{item.Text}</p>
                 </Paper>
               ))}
-
-
-
-          </p>
-
          </div>
-         <BottomNav/>
+         <ExitBtn/>
          </MuiThemeProvider>
       </div>
     );

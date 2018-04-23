@@ -9,6 +9,8 @@ import {
   withRouter
 } from 'react-router-dom'
 import Paper from 'material-ui/Paper';
+import Nav from './Navigation';
+import ExitBtn from './ExitBtn';
 
 class Abonent extends Component {
   constructor(){
@@ -71,26 +73,12 @@ const { error, isLoaded, data } = this.state;
         <MuiThemeProvider>
           <div>
           <AppBar title="Инфа об абоненте"/>
-          <ul>
-            <li><Link to='/Abonent'>Инфа о юзере</Link></li>
-            <li><Link to='/Accounts'>Счета</Link></li>
-            <li><Link to='/Messages'>Сообщения</Link></li>
-          </ul>
-
-          <p>              <Paper style={style} key={data.Id}>
-                          <h2>{data.Name}</h2>
-
-                          <p>Телефоны: {data.Phones}</p>
-                        </Paper>
-
-              {/* {data(item => (
-                <Paper style={style} zDepth={3}  rounded= {true} key={item.Id}>
-                  <strong>{item.Name}</strong>
-                  <p>{item.Phones}</p>
-                </Paper>
-              ))} */}
-          </p>
-
+          <Nav/>
+            <Paper style={style} key={data.Id}>
+              <h2>{data.Name}</h2>
+              <p>Телефоны: {data.Phones}</p>
+            </Paper>
+            <ExitBtn/>
          </div>
          </MuiThemeProvider>
       </div>

@@ -9,7 +9,10 @@ import {
   withRouter
 } from 'react-router-dom'
 import Paper from 'material-ui/Paper';
-import RaisedButton from 'material-ui/RaisedButton';
+import Nav from './Navigation';
+import ExitBtn from './ExitBtn';
+
+
 class Messages extends Component {
   constructor(){
     super();
@@ -19,12 +22,8 @@ class Messages extends Component {
       data: []
 
     };
-    this.LogOutClick = this.LogOutClick.bind(this);
+
   }
-  LogOutClick(event){
-        localStorage.removeItem('sessionNumber');
-        window.location.reload()
-};
 
   componentDidMount() {
     const url = 'https://bms.it-tv.org/stat/api.php'
@@ -77,11 +76,7 @@ const { error, isLoaded, data } = this.state;
         <MuiThemeProvider>
           <div>
           <AppBar title="Сообщения"/>
-          <ul>
-            <li><Link to='/Abonent'>Инфа о юзере</Link></li>
-            <li><Link to='/Accounts'>Счета</Link></li>
-            <li><Link to='/Messages'>Сообщения</Link></li>
-          </ul>
+            <Nav/>
             {data.map(item => (
               <Paper style={style} zDepth={3}  rounded= {true} key={item.Id}>
                 <h2>Счет № {item.Number}</h2>
@@ -90,7 +85,7 @@ const { error, isLoaded, data } = this.state;
               </Paper>
             ))}
          </div>
-         <RaisedButton label="Выход" primary={true} style={style} onClick={(event) => this.LogOutClick(event)}/>
+         <ExitBtn/>
          </MuiThemeProvider>
       </div>
     );
