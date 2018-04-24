@@ -1,10 +1,6 @@
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import AppBar from 'material-ui/AppBar';
 import React, { Component } from 'react';
 import Paper from 'material-ui/Paper';
-import Nav from './Navigation';
-import ExitBtn from './ExitBtn';
-import Loader from './Loader';
 import {  Redirect} from 'react-router-dom'
 
 const url = 'https://bms.it-tv.org/stat/api.php'
@@ -37,9 +33,7 @@ class Abonent extends Component {
             data: result.data
           });
         },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
+
         (error) => {
           this.setState({
             isLoaded: true,
@@ -59,7 +53,7 @@ render() {
     display: 'inline-block',
   };
 
-const { error, isLoaded, data } = this.state;
+const { error, data } = this.state;
   if (error) {
     return <div>Error: {error.message}</div>;
   }else if (data === undefined) {
@@ -75,7 +69,6 @@ const { error, isLoaded, data } = this.state;
               <h2>{data.Name}</h2>
               <p>Телефоны: {data.Phones}</p>
             </Paper>
-            <ExitBtn/>
           </div>
         </MuiThemeProvider>
 

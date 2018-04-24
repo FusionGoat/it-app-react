@@ -5,15 +5,7 @@ import Abonent from './Abonent'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Messages from './Messages'
 import Accounts from './Accounts';
-
-const styles = {
-  headline: {
-    fontSize: 24,
-    paddingTop: 16,
-    marginBottom: 12,
-    fontWeight: 400,
-  },
-};
+import ExitBtn from './ExitBtn';
 
 class Container extends Component {
 
@@ -54,6 +46,7 @@ class Container extends Component {
               </div>
             </Tab>
           </Tabs>
+          <ExitBtn/>
         </div>
       </MuiThemeProvider>
     );
