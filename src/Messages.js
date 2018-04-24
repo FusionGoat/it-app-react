@@ -64,22 +64,14 @@ const { error, isLoaded, data } = this.state;
     return <div>Error: {error.message}</div>;
   } else if (data === undefined) {
     return <div>
-        <Redirect push to="/Login" />;
-    </div>;
-  }else if (!isLoaded) {
-    return <div>
-      <MuiThemeProvider>
-      <Loader/>
-      </MuiThemeProvider>
+        <Redirect push to="/" />;
     </div>;
   } else {
    return (
 
         <MuiThemeProvider>
           <div>
-          <AppBar title="Сообщения"/>
-            <Nav/>
-              {data.map(item => (
+                {data.map(item => (
                 <Paper style={style} zDepth={3}  rounded= {true} key={item.Id}>
                   <strong>{item.Time}</strong>
                   <p>{item.Text}</p>

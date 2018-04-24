@@ -8,17 +8,14 @@ import Abonent from './Abonent'
 import Login from './Login';
 import Messages from './Messages'
 import Accounts from './Accounts';
+import Container from './Container';
 
 
 ReactDOM.render(
   <BrowserRouter>
     <div>
         <Route exact path="/" component={App} />
-        <Route path="/Abonent" component={Abonent} />
-        <Route path="/Login" component={Login} />
-        <Route path="/Messages" component={Messages} />
-        <Route path="/Accounts" component={Accounts} />
-
+        <Route path="/Container" component={Container} />
     </div>
   </BrowserRouter>,
   document.getElementById('root'));

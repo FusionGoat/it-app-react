@@ -69,7 +69,7 @@ handleClick(event){
 render() {
 
   if (this.state.loggedIn) {
-     return <Redirect push to="/Messages" />;
+     return <Redirect push to="/Container" />;
    }else{
 
     return (

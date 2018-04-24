@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Redirect} from 'react-router-dom'
 import Login from './Login';
+import './App.css';
 
 
 
