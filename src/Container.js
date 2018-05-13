@@ -1,12 +1,12 @@
 
 import {Tabs, Tab} from 'material-ui/Tabs';
 import React, {Component} from 'react';
-import Abonent from './Abonent'
+import Abonent from './pages/Abonent'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import Messages from './Messages'
-import Accounts from './Accounts';
-import ExitBtn from './ExitBtn';
-
+import Messages from './pages/Messages'
+import Accounts from './pages/Accounts';
+import ExitBtn from './actions/ExitBtn';
+import SendMsg from './actions/SendMsg';
 class Container extends Component {
 
   constructor(props) {
@@ -37,6 +37,7 @@ class Container extends Component {
             </Tab>
             <Tab label="Сообщения" value="b">
               <div>
+                <SendMsg/>
                 <Messages/>
               </div>
             </Tab>

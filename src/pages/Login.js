@@ -111,8 +111,6 @@ render() {
     );}
   }
   }
-
-
 const style = {
  marginLeft: 50,
 

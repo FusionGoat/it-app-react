@@ -18,7 +18,16 @@ class ExitBtn extends Component {
   }
 
   LogOutClick(event){
+    let url = 'https://bms.it-tv.org/stat/api.php'
+    let action = "exit";
         localStorage.removeItem('sessionNumber');
+        fetch(url, {
+             method: 'POST',
+             headers: {
+               "Content-type": "application/x-www-form-urlencoded"
+             },
+             body: "action="+action
+           })
         window.location.reload()
   };
 

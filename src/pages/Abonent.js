@@ -15,7 +15,7 @@ class Abonent extends Component {
 
   }
 
-  componentDidMount() {
+  componentWillMount() {
 
     let action = "get_abonent";
     fetch(url, {
