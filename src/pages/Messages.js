@@ -1,5 +1,5 @@
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-
+import RaisedButton from 'material-ui/RaisedButton';
 import React, { Component } from 'react';
 import Paper from 'material-ui/Paper';
 import {  Redirect} from 'react-router-dom'
@@ -12,7 +12,7 @@ class Messages extends Component {
       isLoaded: false,
       data: []
     };
-
+ this.handleClick = this.handleClick.bind(this);
   }
   componentDidMount() {
     let url = 'https://bms.it-tv.org/stat/api.php'
@@ -39,7 +39,23 @@ class Messages extends Component {
           });
         }
       )
+
   }
+    handleClick(event,item.Id){
+     let url = 'https://bms.it-tv.org/stat/api.php'
+     let action = "read_message";
+     let MsgId =
+     fetch(url, {
+          method: 'POST',
+          headers: {
+            "Content-type": "application/x-www-form-urlencoded"
+          },
+          body: "action="+action+"&id="+item.Id
+        })
+       .then(res => res.json())
+}
+
+
 
 
 render() {
@@ -66,10 +82,24 @@ const { error, data } = this.state;
 
         <MuiThemeProvider>
           <div>
-                {data.map(item => (
+                {
+                data.map(item => (
                 <Paper style={style} zDepth={3}  rounded= {true} key={item.Id}>
                   <strong>{item.Time}</strong>
                   <p>{item.Text}</p>
+
+                  {item.NewMessage === 't'&&
+                    <RaisedButton
+                      color="primary"
+                      label="Отметить как прочитанное"
+                      primary={true}
+
+                      onClick={(event,item.Id) => this.handleClick(event,item.Id)}
+                    />
+                  }
+                  {item.NewMessage === 'f'&&
+                  <p>Прочитано</p>
+                  }
                 </Paper>
               ))}
 

@@ -51,6 +51,7 @@ const Error_ru = this.state;
 return(
   <div>
     <Paper style={style2}>
+      <h3>Форма обратной связи</h3>
     <TextField
     hintText="Введите Ваше сообщение"
     floatingLabelText="Текст сообщения"
