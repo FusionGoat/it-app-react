@@ -41,7 +41,7 @@ class Messages extends Component {
       )
 
   }
-    handleClick(event,item.Id){
+    handleClick(event){
      let url = 'https://bms.it-tv.org/stat/api.php'
      let action = "read_message";
      let MsgId =
@@ -50,8 +50,7 @@ class Messages extends Component {
           headers: {
             "Content-type": "application/x-www-form-urlencoded"
           },
-          body: "action="+action+"&id="+item.Id
-        })
+          body: "action="+action+"&id=963889"})
        .then(res => res.json())
 }
 
@@ -87,14 +86,14 @@ const { error, data } = this.state;
                 <Paper style={style} zDepth={3}  rounded= {true} key={item.Id}>
                   <strong>{item.Time}</strong>
                   <p>{item.Text}</p>
-
+                  {item.Id}
                   {item.NewMessage === 't'&&
                     <RaisedButton
                       color="primary"
                       label="Отметить как прочитанное"
                       primary={true}
 
-                      onClick={(event,item.Id) => this.handleClick(event,item.Id)}
+                      onClick={(event) => this.handleClick(event)}
                     />
                   }
                   {item.NewMessage === 'f'&&

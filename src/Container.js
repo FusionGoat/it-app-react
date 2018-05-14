@@ -5,6 +5,7 @@ import Abonent from './pages/Abonent'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Messages from './pages/Messages'
 import Accounts from './pages/Accounts';
+import Surv from './pages/Surv';
 import ExitBtn from './actions/ExitBtn';
 import SendMsg from './actions/SendMsg';
 class Container extends Component {
@@ -30,7 +31,7 @@ class Container extends Component {
             value={this.state.value}
             onChange={this.handleChange}
           >
-            <Tab label="Информация" value="a">
+            <Tab label="Личные данные" value="a">
               <div>
                 <Abonent/>
               </div>
@@ -41,9 +42,24 @@ class Container extends Component {
                 <Messages/>
               </div>
             </Tab>
-            <Tab label="Счета" value="c">
+
+            <Tab label="Интернет" value="c">
               <div>
-                <Accounts/>
+                <Abonent/>
+              </div>
+            </Tab>
+            <Tab label="Телевидение" value="d">
+              <div>
+                <Abonent/>
+              </div>
+            </Tab><Tab label="Видеонаблюдение" value="e">
+              <div>
+                <Surv/>
+              </div>
+            </Tab>
+            <Tab label="Оплата" value="f">
+              <div>
+                <Abonent/>
               </div>
             </Tab>
           </Tabs>
