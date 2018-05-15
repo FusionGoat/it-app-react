@@ -90,7 +90,8 @@ const { error, data } = this.state;
           <div>
 
                 <Paper>
-                  <Table>
+                  <Table
+                    height={400}>
                     <TableHeader
                       displaySelectAll={false}
                       >
@@ -102,8 +103,7 @@ const { error, data } = this.state;
                       </TableRow>
                     </TableHeader>
                     <TableBody
-                        displayRowCheckbox={false}
-                      	>
+                        displayRowCheckbox={false}>
                           {data.map(item => (
                       <TableRow>
                         <TableRowColumn>{item.Time}</TableRowColumn>

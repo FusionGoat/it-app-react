@@ -18,7 +18,7 @@ class TV extends Component{
     return(
 
 
-<Paper>
+
   <Table
     selectable={false}
       >
@@ -53,7 +53,7 @@ class TV extends Component{
 
     </TableBody>
   </Table>
-</Paper>
+
 );
 }
 }
