@@ -12,7 +12,8 @@ const style = {
 const style2 = {
     padding: 30,
     margin: 20,
-    display: 'inline-block',
+
+
 
 };
 class SendMsg extends Component {
@@ -51,20 +52,21 @@ const Error_ru = this.state;
 return(
   <div>
     <Paper style={style2}>
-      <h3>Форма обратной связи</h3>
+      <h2>Форма обратной связи</h2>
     <TextField
     hintText="Введите Ваше сообщение"
     floatingLabelText="Текст сообщения"
-     style={style}
-     multiLine={true}
-     rows={1}
+    style={style}
+    multiLine={true}
+    rows={1}
+    fullWidth={true}
     onChange = {(event,newValue) => this.setState({Text:newValue})}
     />
 
     <br/>
       <RaisedButton
       color="primary"
-
+      fullWidth={true}
       label="Отправить сообщение"
       primary={true}
       style={style}

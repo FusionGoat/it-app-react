@@ -3,9 +3,12 @@ import {Tabs, Tab} from 'material-ui/Tabs';
 import React, {Component} from 'react';
 import Abonent from './pages/Abonent'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import Internet from './pages/Internet'
 import Messages from './pages/Messages'
 import Accounts from './pages/Accounts';
 import Surv from './pages/Surv';
+import TV from './pages/TV';
 import ExitBtn from './actions/ExitBtn';
 import SendMsg from './actions/SendMsg';
 class Container extends Component {
@@ -45,12 +48,12 @@ class Container extends Component {
 
             <Tab label="Интернет" value="c">
               <div>
-                <Abonent/>
+                <Internet/>
               </div>
             </Tab>
             <Tab label="Телевидение" value="d">
               <div>
-                <Abonent/>
+                <TV/>
               </div>
             </Tab><Tab label="Видеонаблюдение" value="e">
               <div>
@@ -59,7 +62,7 @@ class Container extends Component {
             </Tab>
             <Tab label="Оплата" value="f">
               <div>
-                <Abonent/>
+                <Accounts/>
               </div>
             </Tab>
           </Tabs>

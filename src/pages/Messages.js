@@ -3,7 +3,14 @@ import RaisedButton from 'material-ui/RaisedButton';
 import React, { Component } from 'react';
 import Paper from 'material-ui/Paper';
 import {  Redirect} from 'react-router-dom'
-
+import {
+  Table,
+  TableBody,
+  TableHeader,
+  TableHeaderColumn,
+  TableRow,
+  TableRowColumn,
+} from 'material-ui/Table';
 class Messages extends Component {
   constructor(){
     super();
@@ -81,26 +88,48 @@ const { error, data } = this.state;
 
         <MuiThemeProvider>
           <div>
-                {
-                data.map(item => (
-                <Paper style={style} zDepth={3}  rounded= {true} key={item.Id}>
-                  <strong>{item.Time}</strong>
-                  <p>{item.Text}</p>
-                  {item.Id}
-                  {item.NewMessage === 't'&&
-                    <RaisedButton
-                      color="primary"
-                      label="Отметить как прочитанное"
-                      primary={true}
 
-                      onClick={(event) => this.handleClick(event)}
-                    />
-                  }
-                  {item.NewMessage === 'f'&&
-                  <p>Прочитано</p>
-                  }
+                <Paper>
+                  <Table>
+                    <TableHeader
+                      displaySelectAll={false}
+                      >
+
+                      <TableRow>
+                        <TableHeaderColumn>Дата</TableHeaderColumn>
+                        <TableHeaderColumn>Сообщение</TableHeaderColumn>
+                        <TableHeaderColumn>Статус</TableHeaderColumn>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody
+                        displayRowCheckbox={false}
+                      	>
+                          {data.map(item => (
+                      <TableRow>
+                        <TableRowColumn>{item.Time}</TableRowColumn>
+                        <TableRowColumn>{item.Text}</TableRowColumn>
+                        <TableRowColumn>{item.NewMessage === 't'&&
+                          <RaisedButton
+                            color="primary"
+                            label="Отметить как прочитанное"
+                            primary={true}
+                            onClick={(event) => this.handleClick(event)}
+                          />
+                        }
+                        {item.NewMessage === 'f'&&
+                        <p>Прочитано</p>}
+                      </TableRowColumn>
+                      </TableRow>
+))}
+
+
+                    </TableBody>
+
+
+
+                  </Table>>
                 </Paper>
-              ))}
+
 
 
          </div>

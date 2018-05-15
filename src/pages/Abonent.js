@@ -49,7 +49,7 @@ render() {
 
     padding: 50,
     margin: 20,
-    textAlign: 'center',
+    textAlign: 'left',
     display: 'inline-block',
   };
 
@@ -68,6 +68,8 @@ const { error, data } = this.state;
             <Paper style={style} key={data.Id}>
               <h2>{data.Name}</h2>
               <p>Телефоны: {data.Phones}</p>
+
+            <p>Адрес: {data.Street} {data.House} {data.FlatType} {data.FlatNumber} </p>
             </Paper>
           </div>
         </MuiThemeProvider>
