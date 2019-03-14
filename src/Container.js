@@ -11,6 +11,7 @@ import Surv from './pages/Surv';
 import TV from './pages/TV';
 import ExitBtn from './actions/ExitBtn';
 import SendMsg from './actions/SendMsg';
+import News from './pages/News';
 class Container extends Component {
 
   constructor(props) {
@@ -63,6 +64,11 @@ class Container extends Component {
             <Tab label="Оплата" value="f">
               <div>
                 <Accounts/>
+              </div>
+            </Tab>
+            <Tab label="Новости" value="g">
+              <div>
+                <News/>
               </div>
             </Tab>
           </Tabs>
